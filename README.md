@@ -14,6 +14,7 @@ Other relevant contract layers include risk mitigation processes to deal with pa
 ![Architecture](StackStructure1.png)
 
 #### Contract overview
+(this sections needs to be updated)
 Each energy producer/component (eventually becoming a peer in a transactive microgrid) will serve as a “lite client” that has access to/exists as an address on the Ethereum blockchain. This address/client will hold funds and continuously execute contract calls on the solar property contract and observe the returned data. With this data, the client will determine if funds are sufficient to continue providing energy from the connected renewable energy source.
 
 #### Key Terms
