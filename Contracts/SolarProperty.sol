@@ -6,7 +6,7 @@ contract SolarProperty {
 // Repeat monthly checks (or eg. every 6 months),i.e. before the begining of a payment cycle.
 // Save the files that are used as source and references in the final harmonized prize in IPFS. Hash the IPFS files to block that sets the Tariff (i.e. for this specific system and customer) at that payment cycle.
 // Provide proof and certification that ——if the tariff is set by 3rd party variables and computer analyses (i.e. not manually configured)— the oracle has not been compromised and outputs without issues.
-// Note: consider yearly adjustment of prices 
+// Note: consider yearly adjustment of prices
 
     uint constant PREPA_PRICE = 0.25; //$/kWh Now set fixed based on an average of Puerto Rico's tariffs. 
     
@@ -172,6 +172,10 @@ contract SolarProperty {
 
 ////////// THE BELOW SECTION DEALS WITH OPERATION, PAYMENTs, TRANSFER OF OWNERSHIP etc //////////
 
+    // ## TODO ### ENERGY ORACLE ###
+    // Needs to take the data that comes from the official "invasive" datalogger and benchmatk the info 
+    // from the non-invasive IoT witness sensors and also check with the solar radiation for that dat. 
+
     // // ## ENERGY CONSUMED ##
     // Record energy consumed by panel at target SSAddress by consumer (called by solar panel)
     function energyConsumed(address ssAddress, address consumer, uint energyConsumed) {
@@ -241,6 +245,11 @@ contract SolarProperty {
          targetSSHolders[from].percentageHeld -= percentTransfer;
          targetSSHolders[admin].percentageHeld += percentTransfer;
      }
+
+     // ## TODO ## REQUEST THE MINTING OR A RENEWABLE ENERGY AND CARBON CERTIFICATE
+     // Integrate the devices with swytch (maybe do this previously) and receive here their an erc721 REC token. 
+     // Use EIA carbon data for puerto rico to prototype the carbon offset. 
+     // Consider using oraclize.it to API the data from the EIA website https://www.eia.gov/state/data.php?sid=RQ#CarbonDioxideEmissions)
 
     // // Grant ownership to newOwner of whatever portion of the solar panel at targetSSAddress they currently hold
     // MW // what is the difference between changing holdings and granting ownership? Should ownership be the step applied once the system is fully paid?
